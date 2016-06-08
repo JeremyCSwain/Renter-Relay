@@ -26,7 +26,7 @@ app.controller("addPropCtrl", [
 		$scope.newBedroomCount;
 		$scope.newBathroomCount;
 		$scope.newSqFt;
-		$scope.default_image = "../images/puzzle-house.jpg";
+		$scope.default_image = "./images/puzzle-house.jpg";
 
 		let user = {};
 		
