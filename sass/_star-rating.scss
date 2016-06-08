@@ -1,0 +1,63 @@
+// Styles for star ratings
+
+.rate-heading {
+  text-align: right;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
+}
+
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent;
+}
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  left: 0; 
+  color: gold;
+}
+
+#star-ratings-ul {
+	text-align: right;
+	direction: ltr;
+}
+
+#star-ratings-ul li {
+	display: inline-block;
+	padding: 1px;
+	cursor: pointer;
+}
+
+#star-ratings-ul li i {
+	width: 30px;
+}
+
+#star-ratings-ul li i:hover {
+	color: grey;
+}
+
+.rating {
+  color: lightgrey;
+  margin: 0;
+  padding: 0;
+}
+
+.rating .filled {
+  color: #ffab40;
+}

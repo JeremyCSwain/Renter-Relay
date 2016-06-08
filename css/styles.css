@@ -1,0 +1,181 @@
+/* Styles for navbar */
+nav .brand-logo {
+  margin-top: 30px;
+  color: #a7ffeb;
+  font-size: 10vw; }
+
+/* rr logo on TOP nav */
+.brand-logo {
+  font-family: 'AriadneBR', sans-serif; }
+
+/* Main logo in SIDE nav */
+#nav-logo {
+  font-family: 'AriadneBR', sans-serif;
+  color: #4db6ac;
+  font-size: 7em; }
+
+.side-nav {
+  width: 190px; }
+
+.side-nav.fixed {
+  opacity: .8; }
+
+.side-nav.fixed a:hover {
+  background-color: #4db6ac; }
+
+.side-nav li:first-child {
+  padding-left: 28px;
+  margin-top: 80%; }
+
+.side-nav li:hover {
+  background-color: #b2dfdb; }
+
+nav ul a {
+  padding: 33px;
+  font-size: 1.1rem; }
+
+nav i {
+  padding: 33px; }
+
+.navbar {
+  height: 130px;
+  width: 100vw; }
+
+/* Styles for main view of listings */
+/* Primary header text */
+.main-head {
+  margin-top: 6%;
+  margin-bottom: 4%; }
+
+#welcome-header {
+  color: grey;
+  text-shadow: 10px 10px 20px lightgrey;
+  opacity: .8; }
+
+.heading {
+  color: silver; }
+
+/* Welcom text at login */
+.welcome-line {
+  text-shadow: 10px 10px 20px lightgrey; }
+
+/* Separate green or red headers indicating user's status */
+.good-heading {
+  color: #26a69a; }
+
+.bad-heading {
+  color: #e57373; }
+
+.gold-heading {
+  color: #ffab40; }
+
+/* Search bar */
+#search {
+  margin-bottom: 8%; }
+
+#avg-label {
+  position: absolute;
+  top: 0; }
+
+.rr-label {
+  font-family: 'AriadneBR';
+  font-size: 1.9em;
+  color: #ffab40;
+  text-shadow: .5px .5px 20px white; }
+
+.image-label {
+  font-size: 1em;
+  color: #ffab40;
+  text-shadow: .5px .5px 20px white; }
+
+/* Photo modal */
+.photo-modal {
+  height: 75vh;
+  width: 75vw; }
+
+/* Images within carousel modal */
+.carousel-item {
+  background: ghostwhite; }
+
+.carousel-item img {
+  width: 100%; }
+
+.modal-label {
+  margin-top: 2%; }
+
+.main-container {
+  margin-top: 2%; }
+
+.form-page {
+  margin-top: 4%; }
+
+.list-wrapper {
+  word-wrap: break-word;
+  max-width: 100%;
+  height: 200px;
+  overflow: scroll; }
+
+.list {
+  margin-bottom: 100px; }
+
+/* Styles for add-property form view */
+.submit-btn {
+  text-align: center; }
+
+.rate-heading {
+  text-align: right;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+.rating {
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  text-align: left;
+  margin-top: 5%;
+  margin-bottom: 5%; }
+
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em; }
+
+.rating > span:hover,
+.rating > span:hover ~ span {
+  color: transparent; }
+
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+  content: "\2605";
+  position: absolute;
+  left: 0;
+  color: gold; }
+
+#star-ratings-ul {
+  text-align: right;
+  direction: ltr; }
+
+#star-ratings-ul li {
+  display: inline-block;
+  padding: 1px;
+  cursor: pointer; }
+
+#star-ratings-ul li i {
+  width: 30px; }
+
+#star-ratings-ul li i:hover {
+  color: grey; }
+
+.rating {
+  color: lightgrey;
+  margin: 0;
+  padding: 0; }
+
+.rating .filled {
+  color: #ffab40; }
+
+@font-face {
+  font-family: 'AriadneBR';
+  src: url("../fonts/AriadneBR.ttf"); }
+
+body {
+  background-color: ghostwhite; }

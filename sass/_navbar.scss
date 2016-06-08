@@ -1,0 +1,55 @@
+/* Styles for navbar */
+nav .brand-logo {
+	margin-top: 30px;
+	color: #a7ffeb;
+	font-size: 10vw;
+}
+
+/* rr logo on TOP nav */
+.brand-logo {
+	font-family: 'AriadneBR', sans-serif;
+}
+
+/* Main logo in SIDE nav */
+#nav-logo {
+	font-family: 'AriadneBR', sans-serif;
+	color: #4db6ac;
+	font-size: 7em;
+}
+
+.side-nav {
+	width: 190px;
+}
+
+.side-nav.fixed {
+	opacity: .8;
+}
+
+.side-nav.fixed a:hover {
+	background-color: #4db6ac;
+}
+
+.side-nav li:first-child {
+	padding-left: 28px;
+	margin-top: 80%;
+}
+.side-nav li:hover {
+	background-color: #b2dfdb;
+}
+
+nav ul a {
+	padding: 33px;
+	font-size: 1.1rem;
+}
+
+nav i {
+	padding: 33px;
+}
+
+.navbar {
+	height: 130px;
+	width: 100vw;
+}
+
+
+

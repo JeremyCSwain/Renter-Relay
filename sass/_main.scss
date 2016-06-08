@@ -1,0 +1,110 @@
+/* Styles for main view of listings */
+
+/* Primary header text */
+.main-head {
+	margin-top: 6%;
+	margin-bottom: 4%;
+}
+#welcome-header {
+	color: grey;
+	text-shadow: 10px 10px 20px lightgrey;
+	opacity: .8;
+}
+
+.heading {
+	color: silver;
+}
+
+/* Welcom text at login */
+.welcome-line {
+	text-shadow: 10px 10px 20px lightgrey;
+}
+
+/* Separate green or red headers indicating user's status */
+.good-heading {
+	color: #26a69a;
+}
+
+.bad-heading {
+	color: #e57373;
+}
+
+.gold-heading {
+	color: #ffab40;
+}
+
+/* Search bar */
+#search {
+	margin-bottom: 8%;
+}
+
+#avg-label {
+	position: absolute;
+	top: 0;
+}
+
+.rr-label {
+	font-family: 'AriadneBR';
+	font-size: 1.9em; 
+	color: #ffab40;
+	text-shadow: .5px .5px 20px white;
+}
+
+.image-label {
+	font-size: 1em;
+	color: #ffab40;
+	text-shadow: .5px .5px 20px white;
+}
+
+/* Photo modal */
+.photo-modal {
+	height: 75vh;
+	width: 75vw;
+}
+
+/* Images within carousel modal */
+.carousel-item {
+	background: ghostwhite;
+}
+
+.carousel-item img {
+	width: 100%;
+}
+
+.modal-label {
+	margin-top: 2%;
+}
+
+.main-container {
+	margin-top: 2%;
+}
+
+.form-page {
+	margin-top: 4%;
+}
+
+.list-wrapper {
+	word-wrap: break-word;
+	max-width: 100%;
+	height: 200px;
+	overflow: scroll;
+}
+
+.list {
+	margin-bottom: 100px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+<div class="main-container container">
+	<div class="form-page row">
+		<div class="col s12">
+		
+			<!-- Text area for user comment -->
+			<div class="row col s12">
+				<div class="input-field col s12">
+		      <textarea id="textarea1" class="materialize-textarea" ng-model="userComment"></textarea>
+		      <label for="textarea1">Tell Us Your Experience</label>
+		    </div>
+		  </div>
+			<!-- Radios for checking user status as tenant or visitor -->
+			<div class="row col s12">
+				<p class="col s4 offset-s3">
+		      <input name="group1" type="radio" id="test1" ng-click="tenantStatus()"/>
+		      <label for="test1">I was a tenant</label>
+		    </p>
+		    <p class="col s4">
+		      <input name="group1" type="radio" id="test2" ng-click="tenantStatus()"/>
+		      <label for="test2">I was a visitor</label>
+		    </p>
+			</div>
+			<!-- Enter address of new listing -->
+			<div class="row col s12">
+				<div class="input-field col s4">
+					<input class="validate" type="text" placeholder="Street Address" ng-model="newAddress">
+				</div>
+				<div class="input-field col s4">
+					<input class="validate" type="text" placeholder="City" ng-model="newCity">
+				</div>
+				<div class="input-field col s2">
+					<select id="state-select" ng-model="newState">
+						<option value="" disabled selected>State</option>
+						<option value="AL">AL</option>
+						<option value="AK">AK</option>
+						<option value="AZ">AZ</option>
+						<option value="AR">AR</option>
+						<option value="CA">CA</option>
+						<option value="CO">CO</option>
+						<option value="CT">CT</option>
+						<option value="DE">DE</option>
+						<option value="FL">FL</option>
+						<option value="GA">GA</option>
+						<option value="HI">HI</option>
+						<option value="ID">ID</option>
+						<option value="IL">IL</option>
+						<option value="IN">IN</option>
+						<option value="IA">IA</option>
+						<option value="KS">KS</option>
+						<option value="KY">KY</option>
+						<option value="LA">LA</option>
+						<option value="ME">ME</option>
+						<option value="MD">MD</option>
+						<option value="MA">MA</option>
+						<option value="MI">MI</option>
+						<option value="MN">MN</option>
+						<option value="MS">MS</option>
+						<option value="MO">MO</option>
+						<option value="MT">MT</option>
+						<option value="NE">NE</option>
+						<option value="NV">NV</option>
+						<option value="NH">NH</option>
+						<option value="NJ">NJ</option>
+						<option value="NM">NM</option>
+						<option value="NY">NY</option>
+						<option value="NC">NC</option>
+						<option value="ND">ND</option>
+						<option value="OH">OH</option>
+						<option value="OK">OK</option>
+						<option value="OR">OR</option>
+						<option value="PA">PA</option>
+						<option value="RI">RI</option>
+						<option value="SC">SC</option>
+						<option value="SD">SD</option>
+						<option value="TN">TN</option>
+						<option value="TX">TX</option>
+						<option value="UT">UT</option>
+						<option value="VT">VT</option>
+						<option value="VA">VA</option>
+						<option value="WA">WA</option>
+						<option value="WV">WV</option>
+						<option value="WI">WI</option>
+						<option value="WY">WY</option>
+					</select>
+				</div>
+				<div class="input-field col s2">
+					<input type="text" class="validate" placeholder="Zip Code" ng-model="newZipCode">
+				</div>
+			</div>
+			<!-- Info on property -->
+			<div class="row col s12">
+				<div class="input-field col s4">
+					<input type="text" class="validate" placeholder="Number of Bedrooms" ng-model="newBedroomCount">
+				</div>
+				<div class="input-field col s4">
+					<input type="text" class="validate" placeholder="Number of Bathrooms" ng-model="newBathroomCount">
+				</div>
+
+				<div class="input-field col s4">
+					<input type="text" class="validate" placeholder="Square Footage (if Known)" ng-model="newSqFt">
+				</div>
+			</div>
+			<!-- Upload and set mainImage for new property listing -->
+			<div class="row col s12">
+				<div class="file-field input-field col s12">
+		      <div class="btn">
+		        <span>Upload Image</span>
+		        <input type="file" ngf-select="setImages($files)">
+		      </div>
+		      <div class="file-path-wrapper">
+		        <input class="file-path validate" type="text" placeholder="Upload a primary photo for this listing.">
+		      </div>
+		    </div>
+			</div>
+			<!-- SUBMIT new listing to database -->
+			<div class="row col s12">
+				<div class="submit-btn col s4 offset-s4">
+			    <button class="btn-large waves-effect waves-light" type="submit" name="action" ng-click="addNewListing()">Submit
+			  	</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon" type="image/x-icon" href="./images/RRicon.png"/>
+	<title>Renter Relay</title>
+	<!-- Google Material Icons -->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!-- MATERIALIZE CSS-->
+	<link rel="stylesheet" href="lib/bower_components/Materialize/dist/css/materialize.css">
+	<!-- END MATERIALIZE CSS-->
+	<link rel="stylesheet" href="css/styles.css">
+</head>
+<body ng-app="RenterRelay">
+
+	<div ng-controller="navCtrl">
+    <div ng-include="'partials/nav.html'">
+    <!-- Navbar -->
+    </div>
+  </div>
+
+	<div ng-view>
+		<!-- Content -->
+	</div>
+
+
+
+	<!-- JQuery Library -->
+	<script src="lib/bower_components/jquery/dist/jquery.min.js"></script>
+	<!-- MATERIALIZE JS -->
+	<!-- JS (necessary for Materialize's JavaScript plugins) -->
+	<script src="lib/bower_components/Materialize/dist/js/materialize.js"></script>
+	<!-- END MATERIALIZE JS -->
+	<script src="lib/bower_components/angular/angular.min.js"></script>
+  <script src="lib/bower_components/angular-route/angular-route.min.js"></script>
+  <script src="lib/bower_components/firebase/firebase.js"></script>
+  <script src="lib/bower_components/angularfire/dist/angularfire.min.js"></script>
+  <script src="lib/bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+	<script src="lib/bower_components/angular-materialize/src/angular-materialize.js"></script>
+
+  <!-- Local scripts -->
+	<script src="app/app.js"></script>
+	<script src="app/factories/authFactory.js"></script>
+	<script src="app/factories/listingFactory.js"></script>
+	<script src="app/factories/imageFactory.js"></script>
+	<script src="app/factories/commentFactory.js"></script>
+	<script src="app/factories/ratingFactory.js"></script>
+	<script src="app/factories/proFactory.js"></script>
+	<script src="app/factories/conFactory.js"></script>
+	<script src="app/controllers/navCtrl.js"></script>
+	<script src="app/controllers/loginCtrl.js"></script>
+	<script src="app/controllers/pageCtrl.js"></script>
+	<script src="app/controllers/addPropCtrl.js"></script>
+	<script src="app/controllers/photoCtrl.js"></script>
+	<script src="app/controllers/commentCtrl.js"></script>
+	<script src="app/controllers/proCtrl.js"></script>
+	<script src="app/controllers/conCtrl.js"></script>
+	<script src="app/directives/starDirective.js"></script>
+</body>
+</html>

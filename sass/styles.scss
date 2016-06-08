@@ -1,0 +1,15 @@
+@import '_navbar';
+@import '_main';
+@import '_add-property';
+@import '_star-rating';
+
+@font-face {
+	font-family: 'AriadneBR';
+	src: url("../fonts/AriadneBR.ttf");
+}
+
+body {
+	background-color: ghostwhite;
+}
+
+

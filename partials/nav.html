@@ -1,0 +1,20 @@
+<nav class="navbar">
+	<div class="nav-wrapper">
+		<!-- TOP section of Nav -->
+		<a href="#/main" class="brand-logo center">renter relay</a>
+	  <ul id="nav-tab" class="right">
+	  <!-- If user is authenticated, show logout option -->
+	    <li ng-if="isAuthenticated()"><a ng-click="logout()">Logout</a></li>
+	    <li ng-if="!isAuthenticated()"><a>Log In or Register</a></li>
+	    <li><i class="material-icons">perm_identity</i></li>
+	  </ul>
+	  <!-- SIDE section of Nav -->
+		<a href="#" data-activates="slide-out" data-sidenav="left" class="button-collapse"><i class="material-icons">menu</i></a>
+	  <ul id="slide-out" class="side-nav fixed">
+	  	<li id="nav-logo" class="hoverable">rr</li>
+	    <li class="hoverable"><a href="#/main">View Properties</a></li>
+	    <li class="hoverable"><a href="#/add-property">List a Property</a></li>
+	  </ul>
+	</div>
+</nav>
+
