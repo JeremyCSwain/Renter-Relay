@@ -187,6 +187,9 @@ app.controller("pageCtrl", [
 						avgRating = parseFloat($scope.postings[postKey].avg_rating / $scope.postings[postKey].num_of_ratings);
 						avgRating = Math.round( avgRating * 10 ) / 10;
 						$scope.postings[postKey].avg_rating = avgRating;
+						if (isNaN($scope.postings[postKey].avg_rating)) {
+							$scope.postings[postKey].avg_rating = 0;
+						}
 					};
 					
 					// Allow for use of a main postings array and object of objects **Angular only allows filtering with arrays
