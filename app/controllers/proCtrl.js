@@ -20,14 +20,7 @@ app.controller("proCtrl",
 
     // Local variables
     let ref = new Firebase(firebaseURL);
-
     let user = {};
-    
-    // Get current user object
-    authFactory.getUser().then(UserObj => {
-      user = UserObj;
-      }
-    );
 
     // Check user status as tenant or visitor
     $scope.tenantStatus = function () {
@@ -40,20 +33,35 @@ app.controller("proCtrl",
 
     // Adds a new pro to firebase via the pro modal.
     $scope.addNewPro = function (postId) {
-      $http.post(
-        `${firebaseURL}/posting_pros/${postId}.json`,
-
-        JSON.stringify({
-          uid: user.uid,
-          userName: user.userName,
-          tenanted: $scope.tenanted,
-          pro1: $scope.pro1,
-          pro2: $scope.pro2,
-          pro3: $scope.pro3,
-          pro4: $scope.pro4,
-          pro5: $scope.pro5,
-          pro6: $scope.pro6
-        })
+      let postingId = postId;
+      let pro1 = $scope.pro1;
+      let pro2 = $scope.pro2;
+      let pro3 = $scope.pro3;
+      let pro4 = $scope.pro4;
+      let pro5 = $scope.pro5;
+      let pro6 = $scope.pro6;
+      let tenanted = $scope.tenanted;
+      authFactory.getUser().then(UserObj => {
+        user = UserObj;
+        }
+      )
+      .then(
+        function () {
+          $http.post(
+            `${firebaseURL}/posting_pros/${postingId}.json`,
+            JSON.stringify({
+              uid: user.uid,
+              userName: user.userName,
+              tenanted: $scope.tenanted,
+              pro1: pro1,
+              pro2: pro2,
+              pro3: pro3,
+              pro4: pro4,
+              pro5: pro5,
+              pro6: pro6
+            })
+          )
+        }
       )
       .then(
         // Route back to main page
@@ -74,6 +82,5 @@ app.controller("proCtrl",
         (response) => console.log(response)  
       );  
     }
-
   }
 ]);

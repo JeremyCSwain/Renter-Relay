@@ -18,10 +18,6 @@ app.controller("commentCtrl",
     $scope.newComment = "";
     $scope.tenanted = false;
 
-    authFactory.getUser().then(UserObj => {
-      user = UserObj;
-      }
-    );
 
     // Checks radio button input from user to determine tenant or visited status
     $scope.tenantStatus = function () {
@@ -34,14 +30,25 @@ app.controller("commentCtrl",
 
     // Adds a new comment to firebase via the comment modal.
     $scope.addNewComment = function (postId) {
-      $http.post(
-        `${firebaseURL}/comments/${postId}.json`,
-        JSON.stringify({
-          uid: user.uid,
-          userName: user.userName,
-          tenanted: $scope.tenanted,
-          user_comment: $scope.newComment
-        })
+      let postingId = postId;
+      let userComment = $scope.newComment;
+      let tenanted = $scope.tenanted;
+      authFactory.getUser().then(UserObj => {
+        user = UserObj;
+        }
+      )
+      .then(
+        function () {
+          $http.post(
+            `${firebaseURL}/comments/${postingId}.json`,
+            JSON.stringify({
+              uid: user.uid,
+              userName: user.userName,
+              tenanted: tenanted,
+              user_comment: userComment
+            }
+          )
+        )}
       )
       .then(
         // After adding comment to database, return to the main portal
