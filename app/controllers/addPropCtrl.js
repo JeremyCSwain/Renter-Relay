@@ -23,18 +23,12 @@ app.controller("addPropCtrl", [
 		$scope.newCity = "";
 		$scope.newState = "";
 		$scope.newZipCode = "";
-		$scope.newBedroomCount;
-		$scope.newBathroomCount;
-		$scope.newSqFt;
+		$scope.newBedroomCount = 0;
+		$scope.newBathroomCount = 0;
+		$scope.newSqFt = 0;
 		$scope.default_image = "./images/puzzlehouse.jpg";
 
 		let user = {};
-		
-		// Get current user object
-		authFactory.getUser().then(UserObj => {
-      user = UserObj;
-      }
-    );
 
 		// Radio button input to check if user is visitor or prev tenant
 		$scope.tenantStatus = function () {
@@ -57,22 +51,41 @@ app.controller("addPropCtrl", [
 
 		// Adds a new base posting to firebase.
 		$scope.addNewListing = function () {
-			$scope.newState = $('#state-select').val();
-			$http.post(
-        `${firebaseURL}/postings.json`,
-	        JSON.stringify({
-	        	uid: user.uid,
-	        	userName: user.userName,
-	        	tenanted: $scope.tenanted,
-	          zip_code: $scope.newZipCode,
-	          state: $scope.newState,
-	          city: $scope.newCity,
-	          address: $scope.newAddress,
-	          room_count: $scope.BedroomCount,
-	          bath_count: $scope.newBathroomCount,
-	          sqft: $scope.newSqFt,
-	          main_image: $scope.default_image
-	        })
+			let tenanted = $scope.tenanted;
+			let userComment = $scope.userComment;
+			let newAddress = $scope.newAddress;
+			let newCity = $scope.newCity;
+			let newState = $scope.newState;
+			let newZipCode = $scope.newZipCode;
+			let newBedroomCount = $scope.newBedroomCount;
+			let newBathroomCount = $scope.newBathroomCount;
+			let newSqFt = $scope.newSqFt;
+			let default_image = $scope.default_image;
+
+			authFactory.getUser().then(UserObj => {
+	      user = UserObj;
+	      }
+	    )
+	    .then(
+		    function () {
+					$scope.newState = $('#state-select').val();
+					$http.post(
+		        `${firebaseURL}/postings.json`,
+		        JSON.stringify({
+		        	uid: user.uid,
+		        	userName: user.userName,
+		        	tenanted: tenanted,
+		          zip_code: newZipCode,
+		          state: newState,
+		          city: newCity,
+		          address: newAddress,
+		          room_count: BedroomCount,
+		          bath_count: newBathroomCount,
+		          sqft: newSqFt,
+		          main_image: default_image
+		        }
+		      )
+		   	)}     	
       )
       .then(
       	// After posting the new listing, return back the new list of postings

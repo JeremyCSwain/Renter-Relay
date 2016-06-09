@@ -13,16 +13,9 @@ app.controller("photoCtrl",
 
     // Local variables
     let ref = new Firebase(firebaseURL);
+    let user = {};
 
     $scope.image = "";
-
-    let user = {};
-    
-    // Get current user object
-    authFactory.getUser().then(UserObj => {
-      user = UserObj;
-      }
-    );
 
     // Adds a new image to firebase via the photo modal.
     $scope.setNewImage = function (files) {
@@ -36,13 +29,24 @@ app.controller("photoCtrl",
 
     // Adds a new photo posting to firebase.
     $scope.addNewPhotos = function (postId) {
-      $http.post(
-        `${firebaseURL}/posting_images/${postId}.json`,
-        JSON.stringify({
-          uid: user.uid,
-          userName: user.userName,
-          image: $scope.image
-        })
+      let postingId = postId;
+      let image = $scope.image;
+
+      authFactory.getUser().then(UserObj => {
+        user = UserObj;
+        }
+      )
+      .then(
+        function () {
+          $http.post(
+            `${firebaseURL}/posting_images/${postingId}.json`,
+            JSON.stringify({
+              uid: user.uid,
+              userName: user.userName,
+              image: image
+            }
+          )         
+        )}
       )
       .then(
         // Route back to main view
