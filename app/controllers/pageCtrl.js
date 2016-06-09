@@ -56,7 +56,14 @@ app.controller("pageCtrl", [
 					let postKey = {};
 					for (postKey in $scope.postings) {
 						addedImages = $scope.images[postKey];
-						$scope.postings[postKey].images = addedImages;
+						if (addedImages == null || addedImages == "") {
+							$scope.postings[postKey].images = 
+								{
+									image: null
+								}
+						} else {
+							$scope.postings[postKey].images = addedImages;
+						}
 						for (var key in addedImages) {
 							$scope.postings[postKey].images[key] = {
 								uid: addedImages[key].uid,
@@ -65,7 +72,7 @@ app.controller("pageCtrl", [
 							};
 						}
 					}
-
+					
 					},
 					// Logs error if rejected.
 					error => console.log("Error:", error)
