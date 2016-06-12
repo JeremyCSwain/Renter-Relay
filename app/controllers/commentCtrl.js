@@ -42,8 +42,9 @@ app.controller("commentCtrl",
           $http.post(
             `${firebaseURL}/comments/${postingId}.json`,
             JSON.stringify({
+              id: postingId,
               uid: user.uid,
-              userName: user.userName,
+              username: user.username,
               tenanted: tenanted,
               user_comment: userComment
             }

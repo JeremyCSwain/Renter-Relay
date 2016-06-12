@@ -52,7 +52,7 @@ app.controller("conCtrl",
             `${firebaseURL}/posting_cons/${postingId}.json`,
             JSON.stringify({
               uid: user.uid,
-              userName: user.userName,
+              username: user.username,
               tenanted: tenanted,
               con1: con1,
               con2: con2,

@@ -41,8 +41,9 @@ app.controller("photoCtrl",
           $http.post(
             `${firebaseURL}/posting_images/${postingId}.json`,
             JSON.stringify({
+              id: postingId,
               uid: user.uid,
-              userName: user.userName,
+              username: user.username,
               image: image
             }
           )         
@@ -57,7 +58,7 @@ app.controller("photoCtrl",
       .then(
           // Handle resolve
         () => console.log("Successfully added new image to firebase"),
-        $scope.image = "",
+        // $scope.image = "",
           // Handle reject
         (response) => console.log(response)  
       );  

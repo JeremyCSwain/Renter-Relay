@@ -60,6 +60,7 @@ app.controller("addPropCtrl", [
 
 		// Adds a new base posting to firebase.
 		$scope.addNewListing = function () {
+
 			let tenanted = $scope.tenanted;
 			let userComment = $scope.userComment;
 			let newAddress = $scope.newAddress;
@@ -77,12 +78,13 @@ app.controller("addPropCtrl", [
 	    )
 	    .then(
 		    function () {
-					$scope.newState = $('#state-select').val();
+					newState = $('#state-select').val();
 					$http.post(
 		        `${firebaseURL}/postings.json`,
 		        JSON.stringify({
 		        	uid: user.uid,
-		        	userName: user.userName,
+		        	username: user.username,
+		        	is_owner: user.is_owner,
 		        	tenanted: tenanted,
 		          zip_code: newZipCode,
 		          state: newState,
@@ -118,7 +120,7 @@ app.controller("addPropCtrl", [
 	      	$http.post(`${firebaseURL}/comments/${$scope.lastPostingKey}.json`,
 		      	JSON.stringify({
 		      		uid: user.uid,
-		      		userName: user.userName,
+		      		username: user.username,
 		      		tenanted: $scope.tenanted,
 		      		user_comment: $scope.userComment
 		      	})

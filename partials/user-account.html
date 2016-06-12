@@ -16,13 +16,42 @@
 			    </a>
 			    <ul>
 			      <li><a class="btn-floating red" tooltipped data-position="top" data-delay="50" data-tooltip="Delete Listing?" ng-click="deleteListing(post.id)"><i class="material-icons">delete</i></a></li>
-<!-- 			      <li><a class="btn-floating yellow darken-1" tooltipped data-position="top" data-delay="50" data-tooltip="Delete Photos?"><i class="material-icons">photo_camera</i></a></li>
-			      <li><a class="btn-floating green" tooltipped data-position="top" data-delay="50" data-tooltip="Delete Comments?"><i class="material-icons">comment</i></a></li> -->
+			      <li><a class="btn-floating yellow darken-1" tooltipped data-position="top" data-delay="50" data-tooltip="Delete Photos?" ng-click="photoEditModal(post.id)"><i class="material-icons">photo_camera</i></a></li>
+			      <li><a class="btn-floating green" tooltipped data-position="top" data-delay="50" data-tooltip="Delete Comments?" ng-click="commentEditModal(post.id)"><i class="material-icons">comment</i></a></li>
 			    </ul>
 			  </div>
 
 	    </li>
 	  </ul>
+
+	  <!-- photoEditModal Structure -->
+	  <div id="photoEditModal{{post.id}}" class="photo-modal modal row col s12" ng-repeat="post in postings">
+	    <div ng-repeat="image in post.images">
+	      <ul id="photo_collection" class="collection">
+	        <li class="center collection-item"><img id="{{ image.id }}" ng-src="{{image.image}}" alt="No Photos of this property have been shared">
+		        <div class="secondary-content">
+			        <a class="btn-floating btn-large red" tooltipped data-position="left" data-delay="50" data-tooltip="Delete This Photo of {{ post.address}}?" ng-click="deletePhoto(post.id, image.id)"><i class="material-icons">delete</i>
+			        </a>
+			      </div>
+		      </li>
+	      </ul>
+	    </div>
+	  </div>
+
+	  <!-- commentEditModal Structure -->
+	  <div id="commentEditModal{{post.id}}" class="commentEdit-modal modal row col s12" ng-repeat="post in postings">
+	    <div ng-repeat="comment in post.comments">
+	      <ul id="comment_collection" class="collection">
+	        <li class="center collection-item">
+	        	<span id="{{ comment.id }}" class="title"><em>"{{comment.user_comment}}"</em></span>
+		        <div class="secondary-content">
+			        <a class="btn-floating btn-large red" tooltipped data-position="left" data-delay="50" data-tooltip="Delete This Comment for {{ post.address}}?" ng-click="deleteComment(post.id, comment.id)"><i class="material-icons">delete</i>
+			        </a>
+			      </div>
+		      </li>
+	      </ul>
+	    </div>
+	  </div>
 
   <!-- End row -->
   </div>

@@ -117,8 +117,8 @@
   <!-- carouselModal Structure -->
   <div id="carouselModal{{post.id}}" class="photo-modal modal row col s12" ng-repeat="post in postings">
     <div ng-repeat="image in post.images">
-      <ul>
-        <li class="center carousel-item"><img ng-src="{{image.image}}" alt="Share your photos of this property"></li>
+      <ul id="posting-photo-collection" class="collection">
+        <li class="center collection-item"><img ng-src="{{image.image}}" alt="Share your photos of this property"></li>
       </ul>
     </div>
   </div>
