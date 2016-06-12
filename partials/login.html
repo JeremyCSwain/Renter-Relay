@@ -46,7 +46,8 @@
   <!-- Modal Structure -->
   <div id="modal1" class="modal row col s12">
     <div class="modal-content">
-      <h4>Welcome</h4>
+      <h4 class="center-align">Welcome</h4>
+
       <div class="input-field">
         <input class="validate" type="email" ng-model="newAccount.email"><label for="email">Enter a Valid Email Address</label>
       </div>
@@ -57,6 +58,18 @@
         <input class="validate" type="password" ng-model="newAccount.password"><label for="password">Create a Password</label>
       </div>
     </div>
+
+    <div class="row col s12">
+        <p class="col s4 offset-s3">
+          <input name="group1" type="radio" id="test1" ng-click="isOwner()"/>
+          <label for="test1">Register as a Renter (Lessee)</label>
+        </p>
+        <p class="col s4">
+          <input name="group1" type="radio" id="test2" ng-click="isOwner()"/>
+          <label for="test2">Register as an Owner (Lessor)</label>
+        </p>
+      </div>
+
     <div class="modal-footer">
       <button class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="register()">Create Account</button>
     </div>
