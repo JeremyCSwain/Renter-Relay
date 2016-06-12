@@ -107,7 +107,7 @@ app.controller("addPropCtrl", [
 							$scope.postings[key].id = key;
 						}
 						$scope.lastPostingKey = $scope.postings[key].id;
-						// console.log("All main postings: ", $scope.postings[key].id);
+						console.log("All main postings: ", $scope.postings[key].id);
 					},
 					// Logs error if rejected.
 						error => console.log("Error:", error)
@@ -117,7 +117,8 @@ app.controller("addPropCtrl", [
       .then(
       	// If user leaves a comment, post the comment to the main posting
       	function () {
-	      	$http.post(`${firebaseURL}/comments/${$scope.lastPostingKey}.json`,
+	      	$http.post(
+	      		`${firebaseURL}/comments/${$scope.lastPostingKey}.json`,
 		      	JSON.stringify({
 		      		uid: user.uid,
 		      		username: user.username,

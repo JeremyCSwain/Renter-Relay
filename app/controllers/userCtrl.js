@@ -228,6 +228,12 @@ app.controller("userCtrl", [
 	      	$location.path('#/user-account');
 	      }
       )
+      .then(
+        // Handle resolve
+        () => console.log("Successfully deleted listing from firebase"),
+					// Handle reject
+        (response) => console.log(response)  
+      ); 
     };
 
     $scope.deletePhoto = function (postId, imageId) {
