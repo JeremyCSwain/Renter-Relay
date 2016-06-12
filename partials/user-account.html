@@ -1,3 +1,17 @@
-<div>
-	hey
+<div class="main-container">
+
+  <div class="row col s12">
+
+  	<div id="{{ post.id }}" ng-repeat="post in postings" class="col s6 offset-s4">
+  		<button ng-click="deleteListing(post.id)">Delete</button>{{ post.address }}
+  	</div>
+
+
+
+
+
+
+  <!-- End row -->
+  </div>
+<!-- End Main Container -->
 </div>
