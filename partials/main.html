@@ -17,15 +17,14 @@
       <div id={{post.id}} class="card hoverable" ng-repeat="post in postingsArray | filter: searchText">
 
       <!-- Primary posting image -->
-        <div class="image-wrapper card-image materialboxed" ng-click="carouselModal(post.id)">
+        <div class="image-wrapper card-image materialboxed responsive-img" ng-click="carouselModal(post.id)">
           <a><img ng-src="{{post.main_image}}" alt="Rental Home Image"></a>
           <span class="card-title col s12">
-            <a class="btn-floating btn-small waves-effect waves-light red lighten-2" ng-click="photoModal(post.id)"><i class="material-icons">add_a_photo</i></a> {{post.address}}, {{post.city}}, {{post.state}} {{post.zip_code}} 
+            {{post.address}}, {{post.city}}, {{post.state}} {{post.zip_code}} 
           </span>
           <span id="avg-label" class="card-title col s12 right-align">
             <label class="rr-label">rr</label><label class="image-label"><strong style="font-family: 'AriadneBR'; font-size: 1.4em;">rating: </strong><strong>{{post.avg_rating}}</strong></label>
           </span>
-
         </div>
       
       <!-- Display User Comments -->
@@ -97,8 +96,13 @@
         </div>
 
         <div class="row">
-          <div class="card-action col s12">
+          <div class="card-action col s11">
             <a class="btn-flat" ng-click="commentModal(post.id)"><i class="material-icons">comment</i> Hey, I've been here!</a>
+          </div>
+          <div class="card-action col s1">
+            <a class="btn-floating btn-small waves-effect waves-light red lighten-2" tooltipped data-position="left" data-delay="50" data-tooltip="Share Photos of {{ post.address }}" ng-click="photoModal(post.id)">
+              <i class="material-icons">add_a_photo</i>
+            </a>
           </div>
         </div>
 
