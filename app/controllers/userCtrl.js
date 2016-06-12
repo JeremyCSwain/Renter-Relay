@@ -225,6 +225,7 @@ app.controller("userCtrl", [
         // Return the user to the main page of postings
       	function () {
 	      	$location.path('#/user-account');
+	      	$scope.$apply();
 	      }
       )
     };

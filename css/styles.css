@@ -122,6 +122,9 @@ nav i {
 .submit-btn {
   text-align: center; }
 
+#user_collection {
+  padding: 0; }
+
 .rate-heading {
   text-align: right;
   margin-top: 5%;
