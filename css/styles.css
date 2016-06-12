@@ -80,13 +80,11 @@ nav i {
 .rr-label {
   font-family: 'AriadneBR';
   font-size: 1.9em;
-  color: #ffab40;
-  text-shadow: .5px .5px 20px white; }
+  color: #a7ffeb; }
 
 .image-label {
   font-size: 1em;
-  color: #ffab40;
-  text-shadow: .5px .5px 20px white; }
+  color: #a7ffeb; }
 
 /* Photo modal */
 .photo-modal {
