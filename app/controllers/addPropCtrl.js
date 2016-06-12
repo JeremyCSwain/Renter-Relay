@@ -23,12 +23,21 @@ app.controller("addPropCtrl", [
 		$scope.newCity = "";
 		$scope.newState = "";
 		$scope.newZipCode = "";
-		$scope.newBedroomCount = 0;
-		$scope.newBathroomCount = 0;
-		$scope.newSqFt = 0;
+		$scope.newBedroomCount;
+		$scope.newBathroomCount;
+		$scope.newSqFt;
 		$scope.default_image = "./images/puzzlehouse.jpg";
 
 		let user = {};
+
+		authFactory.getUser().then(UserObj => {
+			user = UserObj;
+		});
+
+		// Radio button input to check if user is tenant or owner
+		$scope.isOwner = function () {
+			return user.is_owner;
+		};
 
 		// Radio button input to check if user is visitor or prev tenant
 		$scope.tenantStatus = function () {
@@ -130,7 +139,7 @@ app.controller("addPropCtrl", [
       );  
 		};
 
-	// End of dependancy function
+	// End of dependency function
 	}
 // End of app.controller
 ]);

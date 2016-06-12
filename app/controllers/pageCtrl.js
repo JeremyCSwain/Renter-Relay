@@ -3,6 +3,7 @@
 app.controller("pageCtrl", [
 	"$scope",
 	"$http",
+	"$filter",
 	"authFactory",
 	"listingFactory",
 	"imageFactory",
@@ -12,7 +13,7 @@ app.controller("pageCtrl", [
 	"ratingFactory",
 	"firebaseURL",
 
-	function ($scope, $http, authFactory, listingFactory, imageFactory, commentFactory, proFactory, conFactory, ratingFactory, firebaseURL) {
+	function ($scope, $location, $filter, authFactory, listingFactory, imageFactory, commentFactory, proFactory, conFactory, ratingFactory, firebaseURL) {
 
 		let ref = new Firebase(firebaseURL);
 
@@ -204,8 +205,8 @@ app.controller("pageCtrl", [
 						$scope.postingsArray.push($scope.postings[p]);
 					};
 
-					console.log("Final Postings Array:", $scope.postingsArray);
-					console.log("Final Postings Object:", $scope.postings);
+					// console.log("Final Postings Array:", $scope.postingsArray);
+					// console.log("Final Postings Object:", $scope.postings);
 					},
 					// Logs error if rejected.
 					error => console.log("Error:", error)
@@ -258,7 +259,7 @@ app.controller("pageCtrl", [
         () => console.log("Successfully added rating info to post on firebase."),
           // Handle reject
         (response) => console.log(response)  
-      );
+      )
 		};
 
 		// Jquery for scrolling windows of user content on each card
@@ -266,7 +267,7 @@ app.controller("pageCtrl", [
 
 		$('input').css('visibility', 'visible');
 
-  // End dependancy function
+  // End dependency function
 	}
 // End of app.controller
 ]);

@@ -31,6 +31,11 @@ app.config(["$routeProvider",
 				controller: "addPropCtrl",
 				resolve: {isAuth}
 			}).
+			when("/user-account", {
+				templateUrl: "partials/user-account.html",
+				controller: "userCtrl",
+				resolve: {isAuth}
+			}).
 			otherwise({
 				redirectTo: "/main"
 			});
