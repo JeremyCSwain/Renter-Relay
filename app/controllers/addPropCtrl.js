@@ -88,7 +88,7 @@ app.controller("addPropCtrl", [
 		          state: newState,
 		          city: newCity,
 		          address: newAddress,
-		          room_count: BedroomCount,
+		          room_count: newBedroomCount,
 		          bath_count: newBathroomCount,
 		          sqft: newSqFt,
 		          main_image: default_image
