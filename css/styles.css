@@ -93,12 +93,8 @@ nav i {
   height: 75vh;
   width: 75vw; }
 
-/* Images within carousel modal */
-.carousel-item {
-  background: ghostwhite; }
-
-.carousel-item img {
-  width: 100%; }
+#posting-photo-collection li img {
+  max-width: 50vw; }
 
 .modal-label {
   margin-top: 2%; }
@@ -124,6 +120,9 @@ nav i {
 
 #user_collection {
   padding: 0; }
+
+#photo_collection li img {
+  max-width: 80vw; }
 
 .rate-heading {
   text-align: right;

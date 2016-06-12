@@ -70,8 +70,9 @@ app.controller("userCtrl", [
 						}
 						for (var key in addedImages) {
 							$scope.postings[postKey].images[key] = {
+								id: key,
 								uid: addedImages[key].uid,
-								userName: addedImages[key].userName,
+								username: addedImages[key].username,
 								image: addedImages[key].image
 							};
 						}
@@ -96,7 +97,7 @@ app.controller("userCtrl", [
 						for (var key in addedComments) {
 							$scope.postings[postKey].comments[key] = {
 								uid: addedComments[key].uid,
-								userName: addedComments[key].userName,
+								username: addedComments[key].username,
 								tenanted: addedComments[key].tenanted,
 								user_comment: addedComments[key].user_comment
 							};
@@ -122,7 +123,7 @@ app.controller("userCtrl", [
 						for (var key in addedPros) {
 							$scope.postings[postKey].posting_pros[key] = {
 								uid: addedPros[key].uid,
-								userName: addedPros[key].userName,
+								username: addedPros[key].username,
 								tenanted: addedPros[key].tenanted,
 								pro1: addedPros[key].pro1,
 								pro2: addedPros[key].pro2,
@@ -153,7 +154,7 @@ app.controller("userCtrl", [
 						for (var key in addedCons) {
 							$scope.postings[postKey].posting_cons[key] = {
 								uid: addedCons[key].uid,
-								userName: addedCons[key].userName,
+								username: addedCons[key].username,
 								tenanted: addedCons[key].tenanted,
 								con1: addedCons[key].con1,
 								con2: addedCons[key].con2,
@@ -208,8 +209,8 @@ app.controller("userCtrl", [
 						$scope.postingsArray.push($scope.postings[p]);
 					};
 
-					// console.log("Final Postings Array:", $scope.postingsArray);
-					// console.log("Final Postings Object:", $scope.postings);
+					console.log("Final Postings Array:", $scope.postingsArray);
+					console.log("Final Postings Object:", $scope.postings);
 					},
 					// Logs error if rejected.
 					error => console.log("Error:", error)
@@ -225,12 +226,78 @@ app.controller("userCtrl", [
         // Return the user to the main page of postings
       	function () {
 	      	$location.path('#/user-account');
-	      	$scope.$apply();
 	      }
       )
     };
+
+    $scope.deletePhoto = function (postId, imageId) {
+      $http.delete(
+      	`${firebaseURL}/posting_images/${postId}/${imageId}.json`
+			)
+      .then(
+        // Return the user to the main page of postings
+      	function () {
+	      	$location.path('#/user-account');
+	      }
+      )
+      .then(
+        // Handle resolve
+        () => console.log("Successfully deleted photo from firebase"),
+					// Handle reject
+        (response) => console.log(response)  
+      );  
+    };
+
+    $scope.deleteComment = function (postId, commentId) { 	
+      $http.delete(
+      	`${firebaseURL}/comments/${postId}/${commentId}.json`
+			)
+      .then(
+        // Return the user to the main page of postings
+      	function () {
+	      	$location.path('#/user-account');
+	      }
+      )
+      .then(
+        // Handle resolve
+        () => console.log("Successfully deleted comment from firebase"),
+					// Handle reject
+        (response) => console.log(response)  
+      );  
+    };
+
+    // Function to activate 'photoEditModal'.
+		$scope.photoEditModal = function (postId) {
+			let modalId = "#photoEditModal" + postId;
+			$(modalId).openModal();
+		};
+
+		// Function to activate 'commentEditModal'.
+		$scope.commentEditModal = function (postId) {
+			let modalId = "#commentEditModal" + postId;
+			$(modalId).openModal();
+		};
 
   // End dependency function
 	}
 // End of app.controller
 ]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

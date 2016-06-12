@@ -51,7 +51,7 @@ app.controller("proCtrl",
             `${firebaseURL}/posting_pros/${postingId}.json`,
             JSON.stringify({
               uid: user.uid,
-              userName: user.userName,
+              username: user.username,
               tenanted: $scope.tenanted,
               pro1: pro1,
               pro2: pro2,

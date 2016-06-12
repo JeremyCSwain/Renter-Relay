@@ -3,6 +3,7 @@
 app.controller("pageCtrl", [
 	"$scope",
 	"$http",
+	"$location",
 	"$filter",
 	"authFactory",
 	"listingFactory",
@@ -13,7 +14,7 @@ app.controller("pageCtrl", [
 	"ratingFactory",
 	"firebaseURL",
 
-	function ($scope, $location, $filter, authFactory, listingFactory, imageFactory, commentFactory, proFactory, conFactory, ratingFactory, firebaseURL) {
+	function ($scope, $http, $location, $filter, authFactory, listingFactory, imageFactory, commentFactory, proFactory, conFactory, ratingFactory, firebaseURL) {
 
 		let ref = new Firebase(firebaseURL);
 
@@ -67,8 +68,9 @@ app.controller("pageCtrl", [
 						}
 						for (var key in addedImages) {
 							$scope.postings[postKey].images[key] = {
+								id: key,
 								uid: addedImages[key].uid,
-								userName: addedImages[key].userName,
+								username: addedImages[key].username,
 								image: addedImages[key].image
 							};
 						}
@@ -93,7 +95,7 @@ app.controller("pageCtrl", [
 						for (var key in addedComments) {
 							$scope.postings[postKey].comments[key] = {
 								uid: addedComments[key].uid,
-								userName: addedComments[key].userName,
+								username: addedComments[key].username,
 								tenanted: addedComments[key].tenanted,
 								user_comment: addedComments[key].user_comment
 							};
@@ -119,7 +121,7 @@ app.controller("pageCtrl", [
 						for (var key in addedPros) {
 							$scope.postings[postKey].posting_pros[key] = {
 								uid: addedPros[key].uid,
-								userName: addedPros[key].userName,
+								username: addedPros[key].username,
 								tenanted: addedPros[key].tenanted,
 								pro1: addedPros[key].pro1,
 								pro2: addedPros[key].pro2,
@@ -150,7 +152,7 @@ app.controller("pageCtrl", [
 						for (var key in addedCons) {
 							$scope.postings[postKey].posting_cons[key] = {
 								uid: addedCons[key].uid,
-								userName: addedCons[key].userName,
+								username: addedCons[key].username,
 								tenanted: addedCons[key].tenanted,
 								con1: addedCons[key].con1,
 								con2: addedCons[key].con2,
@@ -185,6 +187,8 @@ app.controller("pageCtrl", [
 						$scope.postings[postKey].num_of_ratings = 0;
 						for (var key in addedRatings) {
 							$scope.postings[postKey].ratings[key] = {
+								uid: addedRatings[key].uid,
+								username: addedRatings[key].username,
 								user_rating: addedRatings[key].user_rating
 							};
 							// Get the sum of each post's ratings and count how many total ratings there are.
@@ -250,7 +254,7 @@ app.controller("pageCtrl", [
 				`${firebaseURL}/ratings/${postId}.json`,
 				JSON.stringify({
 					uid: user.uid,
-					userName: user.userName,
+					username: user.username,
 					user_rating: rating
 				})
 			)
