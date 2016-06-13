@@ -23,6 +23,7 @@ app.controller("addPropCtrl", [
 		$scope.newCity = "";
 		$scope.newState = "";
 		$scope.newZipCode = "";
+		$scope.cost = "";
 		$scope.newBedroomCount;
 		$scope.newBathroomCount;
 		$scope.newSqFt;
@@ -32,7 +33,8 @@ app.controller("addPropCtrl", [
 
 		authFactory.getUser().then(UserObj => {
 			user = UserObj;
-		});
+			}
+		);
 
 		// Radio button input to check if user is tenant or owner
 		$scope.isOwner = function () {
@@ -60,6 +62,7 @@ app.controller("addPropCtrl", [
 
 		// Adds a new base posting to firebase.
 		$scope.addNewListing = function () {
+			let postKey;
 
 			let tenanted = $scope.tenanted;
 			let userComment = $scope.userComment;
@@ -67,12 +70,13 @@ app.controller("addPropCtrl", [
 			let newCity = $scope.newCity;
 			let newState = $scope.newState;
 			let newZipCode = $scope.newZipCode;
+			let cost = $scope.cost;
 			let newBedroomCount = $scope.newBedroomCount;
 			let newBathroomCount = $scope.newBathroomCount;
 			let newSqFt = $scope.newSqFt;
 			let default_image = $scope.default_image;
 
-			authFactory.getUser().then(UserObj => {
+			return authFactory.getUser().then(UserObj => {
 	      user = UserObj;
 	      }
 	    )
@@ -87,6 +91,7 @@ app.controller("addPropCtrl", [
 		        	is_owner: user.is_owner,
 		        	tenanted: tenanted,
 		          zip_code: newZipCode,
+		          cost: cost,
 		          state: newState,
 		          city: newCity,
 		          address: newAddress,
@@ -102,12 +107,13 @@ app.controller("addPropCtrl", [
       	// After posting the new listing, return back the new list of postings
       	function () {
 	      	return listingFactory().then(mainPostings => {
+	      		
 						$scope.postings = mainPostings;
 						for (var key in mainPostings) {
 							$scope.postings[key].id = key;
+							postKey = $scope.postings[key].id;
 						}
-						$scope.lastPostingKey = $scope.postings[key].id;
-						console.log("All main postings: ", $scope.postings[key].id);
+						console.log("All main postings: ", postKey);
 					},
 					// Logs error if rejected.
 						error => console.log("Error:", error)
@@ -118,11 +124,13 @@ app.controller("addPropCtrl", [
       	// If user leaves a comment, post the comment to the main posting
       	function () {
 	      	$http.post(
-	      		`${firebaseURL}/comments/${$scope.lastPostingKey}.json`,
+	      		`${firebaseURL}/comments/${postKey}.json`,
 		      	JSON.stringify({
+		      		id: postKey,
 		      		uid: user.uid,
 		      		username: user.username,
 		      		tenanted: $scope.tenanted,
+		      		is_owner: user.is_owner,
 		      		user_comment: $scope.userComment
 		      	})
 	      	)

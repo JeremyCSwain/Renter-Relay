@@ -33,7 +33,8 @@ app.controller("commentCtrl",
       let postingId = postId;
       let userComment = $scope.newComment;
       let tenanted = $scope.tenanted;
-      authFactory.getUser().then(UserObj => {
+
+      return authFactory.getUser().then(UserObj => {
         user = UserObj;
         }
       )
@@ -46,6 +47,7 @@ app.controller("commentCtrl",
               uid: user.uid,
               username: user.username,
               tenanted: tenanted,
+              is_owner: user.is_owner,
               user_comment: userComment
             }
           )
