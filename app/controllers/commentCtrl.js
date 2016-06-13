@@ -16,7 +16,7 @@ app.controller("commentCtrl",
     let user = {};
 
     $scope.newComment = "";
-    $scope.tenanted = false;
+    $scope.tenanted;
 
 
     // Checks radio button input from user to determine tenant or visited status

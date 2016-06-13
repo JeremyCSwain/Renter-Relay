@@ -96,9 +96,11 @@ app.controller("userCtrl", [
 						$scope.postings[postKey].comments = addedComments;
 						for (var key in addedComments) {
 							$scope.postings[postKey].comments[key] = {
+								id: key,
 								uid: addedComments[key].uid,
 								username: addedComments[key].username,
 								tenanted: addedComments[key].tenanted,
+								is_owner: addedComments[key].is_owner,
 								user_comment: addedComments[key].user_comment
 							};
 						}

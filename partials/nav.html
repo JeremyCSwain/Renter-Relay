@@ -4,9 +4,9 @@
 		<a href="#/main" class="brand-logo center">renter relay</a>
 	  <ul id="nav-tab" class="right">
 	  <!-- If user is authenticated, show logout option -->
+	    <li ng-if="isAuthenticated()"><a href="#/user-account">My <strong style="font-family: 'AriadneBR'; font-size: 1.4em; color: #a7ffeb;">rr</strong></a></li>
 	    <li ng-if="isAuthenticated()"><a ng-click="logout()">Logout</a></li>
 	    <li ng-if="!isAuthenticated()"><a>Log In or Register</a></li>
-	    <li ng-if="isAuthenticated()"><a href="#/user-account">My <strong style="font-family: 'AriadneBR'; font-size: 1.4em; color: #a7ffeb;">rr</strong></a></li>
 	  </ul>
 	  <!-- SIDE section of Nav -->
 		<a href="#" data-activates="slide-out" data-sidenav="left" class="button-collapse"><i class="material-icons">menu</i></a>
