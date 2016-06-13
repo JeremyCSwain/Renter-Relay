@@ -17,7 +17,7 @@ app.controller("addPropCtrl", [
 
 		$scope.postings = {};
 		$scope.lastPostingKey = "";
-		$scope.tenanted = false;
+		$scope.tenanted;
 		$scope.userComment = "";
 		$scope.newAddress = "";
 		$scope.newCity = "";
@@ -129,7 +129,7 @@ app.controller("addPropCtrl", [
 		      		id: postKey,
 		      		uid: user.uid,
 		      		username: user.username,
-		      		tenanted: $scope.tenanted,
+		      		tenanted: tenanted,
 		      		is_owner: user.is_owner,
 		      		user_comment: $scope.userComment
 		      	})
