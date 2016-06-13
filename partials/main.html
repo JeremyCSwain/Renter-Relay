@@ -25,6 +25,9 @@
           <span id="avg-label" class="card-title col s12 right-align">
             <label class="rr-label">rr</label><label class="image-label"><strong style="font-family: 'AriadneBR'; font-size: 1.4em;">rating: </strong><strong>{{post.avg_rating}}</strong></label>
           </span>
+          <span class="card-title col s12 right-align">
+            ${{ post.cost }}/month
+          </span>
         </div>
       
       <!-- Display User Comments -->
@@ -36,7 +39,7 @@
           <div class="list-wrapper">
             <div class="comment-list list" ng-repeat="comment in post.comments">
               <h6 class="user-heading heading">
-                &#9675; {{comment.userName}} &#9675;
+                &#9675; {{comment.username}} &#9675;
                 <label style="color: #4db6ac;" ng-show="{{comment.tenanted}}">I've lived here!</label>
                 <label style="color: #ee6e73;" ng-show="{{!comment.tenanted}}">I've visited!</label>
               </h6>
@@ -54,7 +57,7 @@
           <div class="list-wrapper">
             <div class="pro-list list" ng-repeat="pro in post.posting_pros">
               <h6 class="heading">
-                &#9675; {{pro.userName}} &#9675;
+                &#9675; {{pro.username}} &#9675;
                 <label style="color: #4db6ac;" ng-show="{{pro.tenanted}}">I've lived here!</label>
                 <label style="color: #ee6e73;" ng-show="{{!pro.tenanted}}">I've visited!</label>
               </h6>
@@ -79,7 +82,7 @@
           <div class="list-wrapper">
             <div class="con-list list" ng-repeat="con in post.posting_cons">
               <h6 class="heading">
-                &#9675; {{con.userName}} &#9675;
+                &#9675; {{con.username}} &#9675;
                 <label style="color: #4db6ac;" ng-show="{{con.tenanted}}">I've lived here!</label>
                 <label style="color: #ee6e73;" ng-show="{{!con.tenanted}}">I've visited!</label>
               </h6>

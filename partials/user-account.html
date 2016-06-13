@@ -2,6 +2,12 @@
 
   <div class="row col s12">
 
+  	<div class="row col s8 offset-s2">
+  		<h4 class="center-align good-heading welcome-line welcome-line1">
+  			Here are your contributions
+  		</h4>
+  	</div>
+
 		<ul id="user_collection" class="collection col s8 offset-s2">
 	    <li id="{{ post.id }}" class="collection-item avatar" ng-repeat="post in postings">
 	      <img ng-src="{{ post.main_image }}" alt="{{ post.address }}" class="circle">
@@ -25,7 +31,7 @@
 
 	  <!-- photoEditModal Structure -->
 	  <div id="photoEditModal{{post.id}}" class="photo-modal modal row col s12" ng-repeat="post in postings">
-	    <div ng-repeat="image in post.images">
+	    <div class="modal-content" ng-repeat="image in post.images">
 	      <ul id="photo_collection" class="collection">
 	        <li class="center collection-item"><img id="{{ image.id }}" ng-src="{{image.image}}" alt="No Photos of this property have been shared">
 		        <div class="secondary-content">
@@ -39,7 +45,7 @@
 
 	  <!-- commentEditModal Structure -->
 	  <div id="commentEditModal{{post.id}}" class="commentEdit-modal modal row col s12" ng-repeat="post in postings">
-	    <div ng-repeat="comment in post.comments">
+	    <div class="modal-content" ng-repeat="comment in post.comments">
 	      <ul id="comment_collection" class="collection">
 	        <li class="center collection-item">
 	        	<span id="{{ comment.id }}" class="title"><em>"{{comment.user_comment}}"</em></span>
