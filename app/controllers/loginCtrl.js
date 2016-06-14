@@ -16,7 +16,7 @@ app.controller("loginCtrl", [
 		let ref = new Firebase(firebaseURL);
 
 		$scope.account = {email: "", password: ""};
-		$scope.newAccount = {email: "", password: "", username: ""};
+		$scope.newAccount = {username: ""};
 
 		// Radio button input to check if user is tenant or owner
 		$scope.isOwner = function () {
@@ -29,7 +29,6 @@ app.controller("loginCtrl", [
 
 		// Registers a new user and creates a new user_data object.
 		$scope.register = function () {
-			$scope.account = $scope.newAccount;
 			ref.createUser({
 				// Set user with email and pw
 				email: $scope.account.email,
@@ -39,7 +38,7 @@ app.controller("loginCtrl", [
 					console.log(`Error creating user: ${error}`);
 				} else {
 					console.log(`Created user account with UID: ${userData.uid}`, userData);
-					authFactory.storeUser(userData.uid, $scope.account.email, $scope.account.username, $scope.isOwner);
+					authFactory.storeUser(userData.uid, $scope.account.email, $scope.newAccount.username, $scope.isOwner);
 					$scope.login();
 				}
 			});
