@@ -31,6 +31,8 @@ app.controller("pageCtrl", [
 		// Get current user object
 		authFactory.getUser().then(UserObj => {
 			user = UserObj;
+			// Hide search bar until page loads
+			$('#searchbar').hide();
 			}
 		)
 		.then(
@@ -208,7 +210,10 @@ app.controller("pageCtrl", [
 					for (var p in $scope.postings) {
 						$scope.postingsArray.push($scope.postings[p]);
 					};
-
+					// Preloader until load
+					$('#preloader').hide();
+					// Return search bar
+					$('#searchbar').show();
 					console.log("Final Postings Array:", $scope.postingsArray);
 					console.log("Final Postings Object:", $scope.postings);
 					},

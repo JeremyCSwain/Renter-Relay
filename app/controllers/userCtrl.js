@@ -30,6 +30,9 @@ app.controller("userCtrl", [
 		// Get current user object
 		authFactory.getUser().then(UserObj => {
 			user = UserObj;
+			// Hide header and collection until page loads
+			$('#userheader').hide();
+			$('#user_collection').hide();
 			}
 		)
 		.then(
@@ -105,7 +108,11 @@ app.controller("userCtrl", [
 							};
 						}
 					}
-
+					// Preloader until load
+					$('#preloader').hide();
+					// Show on load
+					$('#userheader').show();
+					$('#user_collection').show();
 					},
 					// Logs error if rejected.
 					error => console.log("Error:", error)

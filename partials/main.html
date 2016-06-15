@@ -3,8 +3,15 @@
 
   <div class="row col s12">
 
+    <!-- Preloader -->
+    <div id="preloader" class="row col s8 offset-s2">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+
     <!-- Search Properties Bar -->
-    <div class="row col s6 offset-s3">
+    <div id="searchbar" class="row col s6 offset-s3">
       <div class="input-field">
         <i class="material-icons prefix">search</i>
         <input id="search" class="center" type="text" placeholder="Enter a Street Address, City, State, or Zip" ng-model="searchText">
