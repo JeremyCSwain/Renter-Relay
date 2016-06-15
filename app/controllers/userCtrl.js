@@ -44,7 +44,7 @@ app.controller("userCtrl", [
 							$scope.postings[key].id = key;
 						} 
 					}
-					console.log("All main postings: ", $scope.postings);
+					// console.log("All main postings: ", $scope.postings);
 				},
 				// Logs error if rejected.
 					error => console.log("Error:", error)

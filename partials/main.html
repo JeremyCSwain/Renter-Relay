@@ -160,7 +160,7 @@
             <input type="file" ngf-select="setNewImage($files)" multiple>
           </div>
           <div class="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="Upload a photo to share">
+            <input class="file-path validate" type="text" placeholder="Upload a photo to share" required/>
           </div>
         </div>
       </div>
@@ -178,30 +178,31 @@
 
       <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
-          <input name="group1" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
+          <input name="group1" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)" required/>
           <label>I was a tenant</label>
         </p>
         <p class="col s4">
-          <input name="group1" type="radio" id="test2{{post.id}}" ng-click="tenantStatus(post.id)"/>
+          <input name="group1" type="radio" id="test2{{post.id}}" ng-click="tenantStatus(post.id)" required/>
           <label>I was a visitor</label>
         </p>
       </div>
 
       <h5>Tell us about {{post.address}}</h5>
       <div class="input-field col s12">
-        <textarea id="textarea1" class="materialize-textarea" ng-model="newComment"></textarea>
-        <label for="textarea1">How Was Your Experience</label>
+        <textarea id="textarea1" class="materialize-textarea validate" ng-model="newComment" required></textarea>
+        <label for="textarea1" ng-if="!isOwner()">How Was Your Experience</label>
+        <label for="textarea1" ng-if="isOwner()">Leave a Comment</label>
       </div>
 
     </div>
 
     <div class="col s12 modal-footer">
-      <span id="star-ratings">
+      <span id="star-ratings" ng-if="!isOwner()">
         <span ng-init="rating = star.rating - 1"></span>
         <span class="star-rating" star-rating rating-value="rating" data-max="5" on-rating-selected="rateFunction(rating, post.id)"></span>
       </span>
       <label class="col s3 offset-s1 modal-label" style="text-align: right;">Thanks for sharing!</label>
-      <button class="modal-action modal-close waves-effect waves-green btn" ng-click="addNewComment(post.id)">Leave comment</button>
+      <button class="modal-action modal-close waves-effect waves-green btn" type="submit" ng-click="addNewComment(post.id)">Leave comment</button>
     </div>
   </div>
 
