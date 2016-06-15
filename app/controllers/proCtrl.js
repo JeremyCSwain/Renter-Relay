@@ -23,10 +23,10 @@ app.controller("proCtrl",
     let user = {};
 
     // Check user status as tenant or visitor
-    $scope.tenantStatus = function () {
-      if ($('#test3').is(':checked')) {
+    $scope.tenantStatus = function (postId) {
+      if ($(`#test1${postId}`).is(':checked')) {
         $scope.tenanted = true;
-      } else if ($('#test4').is(':checked')) {
+      } else if ($(`#test2${postId}`).is(':checked')) {
         $scope.tenanted = false;
       }
     };
@@ -34,15 +34,14 @@ app.controller("proCtrl",
     // Adds a new pro to firebase via the pro modal.
     $scope.addNewPro = function (postId) {
       let postingId = postId;
-      let pro1 = $scope.pro1;
-      let pro2 = $scope.pro2;
-      let pro3 = $scope.pro3;
-      let pro4 = $scope.pro4;
-      let pro5 = $scope.pro5;
-      let pro6 = $scope.pro6;
-      let tenanted = $scope.tenanted;
+
       authFactory.getUser().then(UserObj => {
         user = UserObj;
+        }
+      )
+      .then(
+        function () {
+          return tenantStatus();
         }
       )
       .then(
@@ -53,12 +52,12 @@ app.controller("proCtrl",
               uid: user.uid,
               username: user.username,
               tenanted: $scope.tenanted,
-              pro1: pro1,
-              pro2: pro2,
-              pro3: pro3,
-              pro4: pro4,
-              pro5: pro5,
-              pro6: pro6
+              pro1: $scope.pro1,
+              pro2: $scope.pro2,
+              pro3: $scope.pro3,
+              pro4: $scope.pro4,
+              pro5: $scope.pro5,
+              pro6: $scope.pro6
             })
           )
         }

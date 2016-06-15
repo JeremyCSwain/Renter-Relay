@@ -18,12 +18,11 @@ app.controller("commentCtrl",
     $scope.newComment = "";
     $scope.tenanted;
 
-
     // Checks radio button input from user to determine tenant or visited status
-    $scope.tenantStatus = function () {
-      if ($('#test1').is(':checked')) {
+    $scope.tenantStatus = function (postId) {
+      if ($(`#test1${postId}`).is(':checked')) {
         $scope.tenanted = true;
-      } else if ($('#test2').is(':checked')) {
+      } else if ($(`#test2${postId}`).is(':checked')) {
         $scope.tenanted = false;
       }
     };
@@ -31,8 +30,9 @@ app.controller("commentCtrl",
     // Adds a new comment to firebase via the comment modal.
     $scope.addNewComment = function (postId) {
       let postingId = postId;
-      let userComment = $scope.newComment;
+
       let tenanted = $scope.tenanted;
+      let newComment = $scope.newComment;
 
       return authFactory.getUser().then(UserObj => {
         user = UserObj;
@@ -48,7 +48,7 @@ app.controller("commentCtrl",
               username: user.username,
               tenanted: tenanted,
               is_owner: user.is_owner,
-              user_comment: userComment
+              user_comment: newComment
             }
           )
         )}

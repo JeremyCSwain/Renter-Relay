@@ -23,10 +23,10 @@ app.controller("conCtrl",
     let user = {};
     
     // Check tenant status
-    $scope.tenantStatus = function () {
-      if ($('#test5').is(':checked')) {
+    $scope.tenantStatus = function (postId) {
+      if ($(`#test1${postId}`).is(':checked')) {
         $scope.tenanted = true;
-      } else if ($('#test6').is(':checked')) {
+      } else if ($(`#test2${postId}`).is(':checked')) {
         $scope.tenanted = false;
         console.log("??");
       }
