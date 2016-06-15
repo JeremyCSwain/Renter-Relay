@@ -42,7 +42,7 @@ app.controller("addPropCtrl", [
 		};
 
 		// Radio button input to check if user is visitor or prev tenant
-		$scope.tenantStatus = function () {
+		$scope.tenantStatus = function (postId) {
 			if ($('#test1').is(':checked')) {
 				$scope.tenanted = true;
 			} else if ($('#test2').is(':checked')) {
@@ -62,23 +62,28 @@ app.controller("addPropCtrl", [
 
 		// Adds a new base posting to firebase.
 		$scope.addNewListing = function () {
-			let postKey;
+			// let postKey;
 
-			let tenanted = $scope.tenanted;
-			let userComment = $scope.userComment;
-			let newAddress = $scope.newAddress;
-			let newCity = $scope.newCity;
-			let newState = $scope.newState;
-			let newZipCode = $scope.newZipCode;
-			let cost = $scope.cost;
-			let newBedroomCount = $scope.newBedroomCount;
-			let newBathroomCount = $scope.newBathroomCount;
-			let newSqFt = $scope.newSqFt;
-			let default_image = $scope.default_image;
+			// let tenanted = $scope.tenanted;
+			// let userComment = $scope.userComment;
+			// let newAddress = $scope.newAddress;
+			// let newCity = $scope.newCity;
+			// let newState = $scope.newState;
+			// let newZipCode = $scope.newZipCode;
+			// let cost = $scope.cost;
+			// let newBedroomCount = $scope.newBedroomCount;
+			// let newBathroomCount = $scope.newBathroomCount;
+			// let newSqFt = $scope.newSqFt;
+			// let default_image = $scope.default_image;
 
 			return authFactory.getUser().then(UserObj => {
 	      user = UserObj;
 	      }
+	    )
+	    .then(
+	    	function () {
+	    		return tenantStatus();
+	    	}
 	    )
 	    .then(
 		    function () {
@@ -89,16 +94,16 @@ app.controller("addPropCtrl", [
 		        	uid: user.uid,
 		        	username: user.username,
 		        	is_owner: user.is_owner,
-		        	tenanted: tenanted,
-		          zip_code: newZipCode,
-		          cost: cost,
-		          state: newState,
-		          city: newCity,
-		          address: newAddress,
-		          room_count: newBedroomCount,
-		          bath_count: newBathroomCount,
-		          sqft: newSqFt,
-		          main_image: default_image
+		        	tenanted: $scope.tenanted,
+		          zip_code: $scope.newZipCode,
+		          cost: $scope.cost,
+		          state: $scope.newState,
+		          city: $scope.newCity,
+		          address: $scope.newAddress,
+		          room_count: $scope.newBedroomCount,
+		          bath_count: $scope.newBathroomCount,
+		          sqft: $scope.newSqFt,
+		          main_image: $scope.default_image
 		        }
 		      )
 		   	)}     	
@@ -111,9 +116,9 @@ app.controller("addPropCtrl", [
 						$scope.postings = mainPostings;
 						for (var key in mainPostings) {
 							$scope.postings[key].id = key;
-							postKey = $scope.postings[key].id;
 						}
-						console.log("All main postings: ", postKey);
+						$scope.lastPostingKey = $scope.postings[key].id;
+						// console.log("All main postings: ", postKey);
 					},
 					// Logs error if rejected.
 						error => console.log("Error:", error)
@@ -124,7 +129,7 @@ app.controller("addPropCtrl", [
       	// If user leaves a comment, post the comment to the main posting
       	function () {
 	      	$http.post(
-	      		`${firebaseURL}/comments/${postKey}.json`,
+	      		`${firebaseURL}/comments/${lastPostingKey}.json`,
 		      	JSON.stringify({
 		      		id: postKey,
 		      		uid: user.uid,
