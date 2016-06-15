@@ -33,7 +33,7 @@ app.controller("pageCtrl", [
 			}
 		);
 
-		// Radio button input to check if user is tenant or owner
+		// Check if user is tenant or owner
 		$scope.isOwner = function () {
 			return user.is_owner;
 		};

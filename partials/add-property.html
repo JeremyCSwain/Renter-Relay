@@ -5,28 +5,29 @@
 			<!-- Text area for user comment -->
 			<div class="row col s12">
 				<div class="input-field col s12">
-		      <textarea id="textarea1" class="materialize-textarea" ng-model="userComment"></textarea>
-		      <label for="textarea1">Tell Us About This Property</label>
+		      <textarea id="textarea1" class="materialize-textarea validate" ng-model="userComment" required></textarea>
+		      <label for="textarea1" ng-if="!isOwner()">Tell Us About This Property</label>
+		      <label for="textarea1" ng-if="isOwner()">Describe This Property</label>
 		    </div>
 		  </div>
 			<!-- Radios for checking user status as tenant or visitor -->
 			<div ng-if="!isOwner()" class="row col s12">
 				<p class="col s4 offset-s3">
-		      <input name="group1" type="radio" id="test1" ng-click="tenantStatus()"/>
+		      <input name="group1" type="radio" id="test1" ng-click="tenantStatus()">
 		      <label for="test1">I was a tenant</label>
 		    </p>
 		    <p class="col s4">
-		      <input name="group1" type="radio" id="test2" ng-click="tenantStatus()"/>
+		      <input name="group1" type="radio" id="test2" ng-click="tenantStatus()">
 		      <label for="test2">I was a visitor</label>
 		    </p>
 			</div>
 			<!-- Enter address of new listing -->
 			<div class="row col s12">
 				<div class="input-field col s4">
-					<input class="validate" type="text" placeholder="Street Address" ng-model="newAddress">
+					<input class="validate" type="text" placeholder="Street Address" ng-model="newAddress" required>
 				</div>
 				<div class="input-field col s4">
-					<input class="validate" type="text" placeholder="City" ng-model="newCity">
+					<input class="validate" type="text" placeholder="City" ng-model="newCity" pattern="[A-Za-z]{1,}" required>
 				</div>
 				<div class="input-field col s2">
 					<select id="state-select" ng-model="newState">
@@ -84,20 +85,20 @@
 					</select>
 				</div>
 				<div class="input-field col s2">
-					<input type="text" class="validate" placeholder="Zip Code" ng-model="newZipCode">
+					<input type="text" class="validate" placeholder="Zip Code" ng-model="newZipCode" pattern="[0-9]{5}" required>
 				</div>
 			</div>
 			<!-- Info on property -->
 			<div class="row col s12">
 				<div class="input-field col s4">
-					<input type="text" class="validate" placeholder="Number of Bedrooms" ng-model="newBedroomCount">
+					<input type="text" class="validate" placeholder="Number of Bedrooms" ng-model="newBedroomCount" pattern="[0-9]{1,}" required>
 				</div>
 				<div class="input-field col s4">
-					<input type="text" class="validate" placeholder="Number of Bathrooms" ng-model="newBathroomCount">
+					<input type="text" class="validate" placeholder="Number of Bathrooms" ng-model="newBathroomCount" pattern="[0-9]{1,}">
 				</div>
 
 				<div class="input-field col s4">
-					<input type="text" class="validate" placeholder="Square Footage (if Known)" ng-model="newSqFt">
+					<input type="text" class="validate" placeholder="Square Footage (if Known)" ng-model="newSqFt" pattern="[0-9]{3,}" required>
 				</div>
 			</div>
 			<!-- Upload and set mainImage for new property listing -->
@@ -115,7 +116,7 @@
 			<!-- Price Input -->
 			<div class="row col s6">
 				<div class="input-field col s12">
-					<input type="text" placeholder="$ Current Cost/month" ng-model="cost">
+					<input type="text" class="validate" placeholder="$ Current Cost/month" ng-model="cost" pattern="[0-9]{2,}" required>
 				</div>
 			</div>
 			<!-- SUBMIT new listing to database -->
