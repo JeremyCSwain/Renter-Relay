@@ -44,6 +44,15 @@
               <i class="material-icons right">playlist_add</i>
           </button>
           <div class="list-wrapper">
+            <div class="comment-list list">
+              <h6 class="user-heading heading">
+                &#9675; {{post.username}} &#9675;
+                <label style="color: #4db6ac;" ng-show="{{post.tenanted && !post.is_owner}}">I've lived here!</label>
+                <label style="color: #ee6e73;" ng-show="{{!post.tenanted && !post.is_owner}}">I've visited!</label>
+                <label style="color: #ffab40;" ng-show="{{!post.tenanted && post.is_owner}}">Lessor</label>
+              </h6>
+              <p><em> "{{post.main_comment}}" </em></p>
+            </div>
             <div class="comment-list list" ng-repeat="comment in post.comments">
               <h6 class="user-heading heading">
                 &#9675; {{comment.username}} &#9675;
@@ -66,9 +75,9 @@
             <div class="pro-list list" ng-repeat="pro in post.posting_pros">
               <h6 class="heading">
                 &#9675; {{pro.username}} &#9675;
-                <label style="color: #4db6ac;" ng-show="{{comment.tenanted && !comment.is_owner}}">I've lived here!</label>
-                <label style="color: #ee6e73;" ng-show="{{!comment.tenanted && !comment.is_owner}}">I've visited!</label>
-                <label style="color: #ffab40;" ng-show="{{!comment.tenanted && comment.is_owner}}">Lessor</label>
+                <label style="color: #4db6ac;" ng-show="{{pro.tenanted && !pro.is_owner}}">I've lived here!</label>
+                <label style="color: #ee6e73;" ng-show="{{!pro.tenanted && !pro.is_owner}}">I've visited!</label>
+                <label style="color: #ffab40;" ng-show="{{!pro.tenanted && pro.is_owner}}">Lessor</label>
               </h6>
             	<ul>
             		<li> {{pro.pro1}} </li>
@@ -92,9 +101,9 @@
             <div class="con-list list" ng-repeat="con in post.posting_cons">
               <h6 class="heading">
                 &#9675; {{con.username}} &#9675;
-                <label style="color: #4db6ac;" ng-show="{{comment.tenanted && !comment.is_owner}}">I've lived here!</label>
-                <label style="color: #ee6e73;" ng-show="{{!comment.tenanted && !comment.is_owner}}">I've visited!</label>
-                <label style="color: #ffab40;" ng-show="{{!comment.tenanted && comment.is_owner}}">Lessor</label>
+                <label style="color: #4db6ac;" ng-show="{{con.tenanted && !con.is_owner}}">I've lived here!</label>
+                <label style="color: #ee6e73;" ng-show="{{!con.tenanted && !con.is_owner}}">I've visited!</label>
+                <label style="color: #ffab40;" ng-show="{{!con.tenanted && con.is_owner}}">Lessor</label>
               </h6>
             	<ul>
             		<li> {{con.con1}} </li>
@@ -167,7 +176,7 @@
   <div id="commentModal{{post.id}}" class="modal row col s12" ng-controller="commentCtrl" ng-repeat="post in postings">
     <div class="modal-content">
 
-      <div class="row col s12">
+      <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
           <input name="group1" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
           <label for="test1">I was a tenant</label>
@@ -201,7 +210,7 @@
   <div id="proModal{{post.id}}" class="modal row col s12" ng-controller="proCtrl" ng-repeat="post in postings">
     <div class="modal-content">
 
-      <div class="row col s12">
+      <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
           <input name="group2" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
           <label for="test1">I was a tenant</label>
@@ -243,7 +252,7 @@
   <div id="conModal{{post.id}}" class="modal row col s12" ng-controller="conCtrl" ng-repeat="post in postings">
     <div class="modal-content">
 
-      <div class="row col s12">
+      <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
           <input name="group3" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
           <label for="test1">I was a tenant</label>
