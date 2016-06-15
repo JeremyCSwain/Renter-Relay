@@ -28,6 +28,16 @@ app.controller("pageCtrl", [
 
 		let user = {};
 
+		authFactory.getUser().then(UserObj => {
+			user = UserObj;
+			}
+		);
+
+		// Radio button input to check if user is tenant or owner
+		$scope.isOwner = function () {
+			return user.is_owner;
+		};
+
 		// Get current user object
 		authFactory.getUser().then(UserObj => {
 			user = UserObj;
