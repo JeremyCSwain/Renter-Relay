@@ -62,32 +62,14 @@ app.controller("addPropCtrl", [
 
 		// Adds a new base posting to firebase.
 		$scope.addNewListing = function () {
-			// let postKey;
-
-			// let tenanted = $scope.tenanted;
-			// let userComment = $scope.userComment;
-			// let newAddress = $scope.newAddress;
-			// let newCity = $scope.newCity;
-			// let newState = $scope.newState;
-			// let newZipCode = $scope.newZipCode;
-			// let cost = $scope.cost;
-			// let newBedroomCount = $scope.newBedroomCount;
-			// let newBathroomCount = $scope.newBathroomCount;
-			// let newSqFt = $scope.newSqFt;
-			// let default_image = $scope.default_image;
 
 			return authFactory.getUser().then(UserObj => {
 	      user = UserObj;
 	      }
 	    )
 	    .then(
-	    	function () {
-	    		return tenantStatus();
-	    	}
-	    )
-	    .then(
-		    function () {
-					newState = $('#state-select').val();
+		    function (resolve, reject) {
+					$scope.newState = $('#state-select').val();
 					$http.post(
 		        `${firebaseURL}/postings.json`,
 		        JSON.stringify({
@@ -103,43 +85,11 @@ app.controller("addPropCtrl", [
 		          room_count: $scope.newBedroomCount,
 		          bath_count: $scope.newBathroomCount,
 		          sqft: $scope.newSqFt,
-		          main_image: $scope.default_image
+		          main_image: $scope.default_image,
+		          main_comment: $scope.userComment
 		        }
 		      )
 		   	)}     	
-      )
-      .then(
-      	// After posting the new listing, return back the new list of postings
-      	function () {
-	      	return listingFactory().then(mainPostings => {
-	      		
-						$scope.postings = mainPostings;
-						for (var key in mainPostings) {
-							$scope.postings[key].id = key;
-						}
-						$scope.lastPostingKey = $scope.postings[key].id;
-						// console.log("All main postings: ", postKey);
-					},
-					// Logs error if rejected.
-						error => console.log("Error:", error)
-					)
-	      }
-      )
-      .then(
-      	// If user leaves a comment, post the comment to the main posting
-      	function () {
-	      	$http.post(
-	      		`${firebaseURL}/comments/${lastPostingKey}.json`,
-		      	JSON.stringify({
-		      		id: postKey,
-		      		uid: user.uid,
-		      		username: user.username,
-		      		tenanted: tenanted,
-		      		is_owner: user.is_owner,
-		      		user_comment: $scope.userComment
-		      	})
-	      	)
-	      }
       )
       .then(
       	// Return the user to the main page of postings
@@ -152,8 +102,40 @@ app.controller("addPropCtrl", [
         () => console.log("Successfully added new posting to firebase"),
 					// Handle reject
         (response) => console.log(response)  
-      );  
+      )
 		};
+
+   //    	// After posting the new listing, return back the new list of postings
+  	// $scope.newMainComment = function () {
+   //  	return listingFactory().then(mainPostings => {
+    		
+			// 	$scope.postings = mainPostings;
+			// 	for (var key in mainPostings) {
+			// 		$scope.postings[key].id = key;
+			// 	$scope.lastPostingKey = $scope.postings[key].id;
+			// 	}
+			// 	console.log("??", $scope.lastPostingKey);
+			// },
+			// // Logs error if rejected.
+			// 	error => console.log("Error:", error)
+			// )
+   //    .then(
+   //    	// If user leaves a comment, post the comment to the main posting
+   //    	function () {
+	  //     	$http.post(
+	  //     		`${firebaseURL}/comments/${$scope.lastPostingKey}.json`,
+		 //      	JSON.stringify({
+		 //      		id: $scope.lastPostingKey,
+		 //      		uid: user.uid,
+		 //      		username: user.username,
+		 //      		tenanted: $scope.tenanted,
+		 //      		is_owner: user.is_owner,
+		 //      		user_comment: $scope.userComment
+		 //      	})
+	  //     	)
+	  //     }
+   //    )
+   //  };
 
 	// End of dependency function
 	}
