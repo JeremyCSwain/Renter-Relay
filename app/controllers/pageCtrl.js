@@ -99,6 +99,7 @@ app.controller("pageCtrl", [
 								uid: addedComments[key].uid,
 								username: addedComments[key].username,
 								tenanted: addedComments[key].tenanted,
+								is_owner: addedComments[key].is_owner,
 								user_comment: addedComments[key].user_comment
 							};
 						}
@@ -125,6 +126,7 @@ app.controller("pageCtrl", [
 								uid: addedPros[key].uid,
 								username: addedPros[key].username,
 								tenanted: addedPros[key].tenanted,
+								is_owner: addedPros[key].is_owner,
 								pro1: addedPros[key].pro1,
 								pro2: addedPros[key].pro2,
 								pro3: addedPros[key].pro3,
@@ -156,6 +158,7 @@ app.controller("pageCtrl", [
 								uid: addedCons[key].uid,
 								username: addedCons[key].username,
 								tenanted: addedCons[key].tenanted,
+								is_owner: addedCons[key].is_owner,
 								con1: addedCons[key].con1,
 								con2: addedCons[key].con2,
 								con3: addedCons[key].con3,
