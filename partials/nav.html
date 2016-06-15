@@ -14,8 +14,33 @@
 	  	<li id="nav-logo" class="hoverable">rr</li>
 	    <li ng-if="isAuthenticated()" class="hoverable"><a href="#/add-property">List a Property</a></li>
 	    <li ng-if="isAuthenticated()" class="hoverable"><a href="#/main">View Properties</a></li>
+	    <li class="hoverable"><a ng-click="aboutModal()">About</a></li>
 	    <li ng-if="isAuthenticated()" class="hoverable"><a href="mailto:renterrelay@gmail.com?subject=Issue Report for RenterRelay.com">Report An Issue</a></li>
 	  </ul>
 	</div>
 </nav>
+
+<!-- aboutModal Structure -->
+<div id="aboutModal" class="modal row col s12">
+  <div class="row col s12 center">
+    <h5>
+    	Welcome to Renter Relay.
+    </h5>
+    <p>
+    	The purpose of this application is to allow users to securely post photos, reviews, comments, pros, and cons about rental properties with which he/she has had personal experiences.
+    </p>
+    <p>
+    	Think of Renter Relay as a 'glass door' between rental property tenants and property owners.
+    </p>
+    <p>
+    	I want my users to be able to expose both good things and bad things about the rental properties in which they have lived and/or visited.
+    </p>
+    <p>
+    	To learn more, please visit <a href="http://jeremycswain.github.io/Renter-Relay">the GitHub repository</a> for this project. Thanks for visiting!
+    </p>
+    <footer class="center">
+				&copy; 2016 <a href="www.jeremythedev.com">Jeremy C. Swain</a>
+			</footer>
+  </div>
+</div>
 

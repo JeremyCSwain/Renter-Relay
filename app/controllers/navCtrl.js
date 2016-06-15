@@ -26,5 +26,10 @@ app.controller("navCtrl",
       ref.unauth();
     };
 
+    // Function to activate 'carouselModal'.
+    $scope.aboutModal = function () {
+      $('#aboutModal').openModal();
+    };
+
   }
 ]);

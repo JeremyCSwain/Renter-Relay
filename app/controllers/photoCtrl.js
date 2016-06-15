@@ -17,7 +17,7 @@ app.controller("photoCtrl",
 
     $scope.image = "";
 
-    // Adds a new image to firebase via the photo modal.
+    // Saves image as base64 in scope.image before POSTing
     $scope.setNewImage = function (files) {
       Upload.base64DataUrl(files).then(
         function (base64URLs) {
