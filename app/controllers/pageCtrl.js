@@ -30,6 +30,7 @@ app.controller("pageCtrl", [
 
 		authFactory.getUser().then(UserObj => {
 			user = UserObj;
+			$scope.$apply();
 			}
 		);
 
