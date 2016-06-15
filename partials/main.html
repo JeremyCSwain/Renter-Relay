@@ -176,7 +176,7 @@
   <div id="commentModal{{post.id}}" class="modal row col s12" ng-controller="commentCtrl" ng-repeat="post in postings">
     <div class="modal-content">
 
-      <div class="row col s12" ng-if="isOwner()">
+      <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
           <input name="group1" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
           <label for="test1">I was a tenant</label>
@@ -210,7 +210,7 @@
   <div id="proModal{{post.id}}" class="modal row col s12" ng-controller="proCtrl" ng-repeat="post in postings">
     <div class="modal-content">
 
-      <div class="row col s12" ng-if="isOwner()">
+      <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
           <input name="group2" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
           <label for="test1">I was a tenant</label>
@@ -252,7 +252,7 @@
   <div id="conModal{{post.id}}" class="modal row col s12" ng-controller="conCtrl" ng-repeat="post in postings">
     <div class="modal-content">
 
-      <div class="row col s12" ng-if="isOwner()">
+      <div class="row col s12" ng-if="!isOwner()">
         <p class="col s4 offset-s3">
           <input name="group3" type="radio" id="test1{{post.id}}" ng-click="tenantStatus(post.id)"/>
           <label for="test1">I was a tenant</label>

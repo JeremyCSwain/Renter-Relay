@@ -21,9 +21,6 @@ app.controller("userCtrl", [
 		$scope.postings = {};
 		$scope.images = {};
 		$scope.comments = {};
-		$scope.pros = {};
-		$scope.cons = {};
-		$scope.ratings = {};
 
 		let user = {};
 
@@ -43,11 +40,11 @@ app.controller("userCtrl", [
 					for (var key in mainPostings) {
 						// Select postings that only the current user has added.
 						if (mainPostings[key].uid == user.uid) {
-							$scope.postings = mainPostings;
+							$scope.postings[key] = mainPostings[key];
 							$scope.postings[key].id = key;
-						}
+						} 
 					}
-					// console.log("All main postings: ", $scope.postings);
+					console.log("All main postings: ", $scope.postings);
 				},
 				// Logs error if rejected.
 					error => console.log("Error:", error)

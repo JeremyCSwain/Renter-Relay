@@ -105,38 +105,6 @@ app.controller("addPropCtrl", [
       )
 		};
 
-   //    	// After posting the new listing, return back the new list of postings
-  	// $scope.newMainComment = function () {
-   //  	return listingFactory().then(mainPostings => {
-    		
-			// 	$scope.postings = mainPostings;
-			// 	for (var key in mainPostings) {
-			// 		$scope.postings[key].id = key;
-			// 	$scope.lastPostingKey = $scope.postings[key].id;
-			// 	}
-			// 	console.log("??", $scope.lastPostingKey);
-			// },
-			// // Logs error if rejected.
-			// 	error => console.log("Error:", error)
-			// )
-   //    .then(
-   //    	// If user leaves a comment, post the comment to the main posting
-   //    	function () {
-	  //     	$http.post(
-	  //     		`${firebaseURL}/comments/${$scope.lastPostingKey}.json`,
-		 //      	JSON.stringify({
-		 //      		id: $scope.lastPostingKey,
-		 //      		uid: user.uid,
-		 //      		username: user.username,
-		 //      		tenanted: $scope.tenanted,
-		 //      		is_owner: user.is_owner,
-		 //      		user_comment: $scope.userComment
-		 //      	})
-	  //     	)
-	  //     }
-   //    )
-   //  };
-
 	// End of dependency function
 	}
 // End of app.controller
