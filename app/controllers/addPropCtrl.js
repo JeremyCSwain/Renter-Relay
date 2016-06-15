@@ -33,6 +33,7 @@ app.controller("addPropCtrl", [
 
 		authFactory.getUser().then(UserObj => {
 			user = UserObj;
+			$scope.$apply();
 			}
 		);
 
