@@ -2,6 +2,8 @@
 
 Welcome to Renter Relay.
 
+##* Note * www.RenterRelay.com is still in its development phase and is only viewable on Chrome or Firefox desktop browsers.
+
 The purpose of this application is to allow users to securely post photos, reviews, comments, pros, and cons about rental properties with which he/she has had personal experiences.
 
 Think of Renter Relay as a 'glass door' between rental property tenants and property owners.
@@ -20,7 +22,3 @@ Knowledge is power, and, in this case, having the type of knowledge that users o
 
 My end goal for this project is to eventually collect enough user data that the possibilities for property owners to price gouge and/or treat tenants unfairly become drastically reduced. Likewise, the rental owners and landlords out there who work hard to provide their tenants with excellent services should be duly rewarded by a continual flow of business from more pleasant tenants who now know what to expect, which will make the renting process better for everyone involved.
 
-
-
-
-# Renter-Relay
