@@ -1,7 +1,7 @@
 
 ##Welcome to Renter Relay.
 
-####* Note * www.RenterRelay.com is still in its development phase and is only viewable on Chrome or Firefox desktop browsers.
+####*Please note: www.RenterRelay.com is still in its development phase and is only viewable on Chrome or Firefox desktop browsers.
 
 The purpose of this application is to allow users to securely post photos, reviews, comments, pros, and cons about rental properties with which he/she has had personal experiences.
 
