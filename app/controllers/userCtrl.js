@@ -47,7 +47,7 @@ app.controller("userCtrl", [
 					if ($.isEmptyObject($scope.postings)) {
 						$('#user_collection').html(`<li class="collection-item center"><span class="title">You have not yet made any contributions.</span></li>`);
 					}
-					console.log("All main postings: ", $scope.postings);
+					// console.log("All main postings: ", $scope.postings);
 				},
 				// Logs error if rejected.
 					error => console.log("Error:", error)

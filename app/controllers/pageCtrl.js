@@ -228,8 +228,8 @@ app.controller("pageCtrl", [
 					$('#preloader').hide();
 					// Return search bar
 					$('#searchbar').show();
-					console.log("Final Postings Array:", $scope.postingsArray);
-					console.log("Final Postings Object:", $scope.postings);
+					// console.log("Final Postings Array:", $scope.postingsArray);
+					// console.log("Final Postings Object:", $scope.postings);
 					},
 					// Logs error if rejected.
 					error => console.log("Error:", error)
