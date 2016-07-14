@@ -12,6 +12,9 @@ app.controller("loginCtrl", [
 		$('.welcome-line1').hide().fadeIn(2000);
 		$('.welcome-line2').hide().fadeIn(6000);
 
+		$(document).ready(function(){
+	    alert(`RenterRelay.com is still under development.\r\rIf you'd like to log in with an existing account to look around and interact with the website, please use the following credentials:\r\remail: 'renter@renter.com'\rpassword: 'renter'\r\rOtherwise, feel free to click 'Register' and create your own account.`);
+	  });
 		
 		let ref = new Firebase(firebaseURL);
 

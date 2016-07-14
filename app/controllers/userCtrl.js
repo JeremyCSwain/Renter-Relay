@@ -42,7 +42,10 @@ app.controller("userCtrl", [
 						if (mainPostings[key].uid == user.uid) {
 							$scope.postings[key] = mainPostings[key];
 							$scope.postings[key].id = key;
-						} 
+						}
+					}
+					if ($.isEmptyObject($scope.postings)) {
+						$('#user_collection').html(`<li class="collection-item center"><span class="title">You have not yet made any contributions.</span></li>`);
 					}
 					// console.log("All main postings: ", $scope.postings);
 				},
